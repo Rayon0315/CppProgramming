@@ -3,7 +3,7 @@
 #include<algorithm>
 using namespace std;
 
-string judge(int total) {
+string judge(double total) {
     if (total >= 90) return "优秀";
     else if (total >= 80) return "良好";
     else return "一般";
@@ -26,7 +26,7 @@ int main() {
     cout << total3 << ':' << judge(total3) << endl;
 
     vector<double> tot = {total1, total2, total3};
-    sort(tot.begin(), tot.end(), greater<int>());
+    sort(tot.begin(), tot.end(), greater<double>());
     cout << "总分从高到低的顺序为：" << endl;
     cout << tot[0] << '\t' << tot[1] << '\t' << tot[2] << endl;
 
