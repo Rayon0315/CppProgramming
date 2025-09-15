@@ -33,6 +33,13 @@ public:
             n /= 10;
         }
     }
+    BigInteger(string s) {
+        num = {};
+        siz = s.size();
+        for (int i = siz-1; i >= 0; i--) {
+            num.push_back(s[i] - '0');
+        }
+    }
     BigInteger(int x, int cnt) {
         num = {};
         siz = cnt;
@@ -124,7 +131,7 @@ public:
 };
 
 int main() {
-    BigInteger A(1024), B(1024);
-    (A / 2).Print();
+    BigInteger A("111111111111111111111111111111111111111111111111111111111"), B(1024);
+    (A * B).Print();
     return 0;
 }
