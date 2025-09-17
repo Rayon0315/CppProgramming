@@ -9,17 +9,17 @@ int lcm(int a, int b) {
     return a / gcd(a, b) * b;
 }
 
-class RealNumber {
+class RationalNumber {
 public:
     int A, B; // the number should be A/B
 
-    RealNumber() {
+    RationalNumber() {
         A = 0, B = 1;
     }
-    RealNumber(int x) {
+    RationalNumber(int x) {
         A = x, B = 1;
     }
-    RealNumber(int a, int b) {
+    RationalNumber(int a, int b) {
         A = a, B = b;
         this->Reduction();
     }
@@ -34,30 +34,35 @@ public:
         A /= x;
         B /= x;
     }
-    RealNumber Inverse() {
-        return RealNumber(this->B, this->A);
+    RationalNumber Inverse() {
+        return RationalNumber(this->B, this->A);
     }
 
-    RealNumber operator + (RealNumber x) {
+    RationalNumber operator + (RationalNumber x) {
         int tot = lcm(this->B, x.B);
         int mul1 = tot / x.B, mul2 = tot / this->B;
-        RealNumber ret(0);
+        RationalNumber ret(0);
         ret.A = this->A * mul1 + x.A * mul2;
         ret.B = tot;
         ret.Reduction();
         return ret;
     }
-    RealNumber operator * (RealNumber x) {
-        RealNumber ret(0);
+    RationalNumber operator * (RationalNumber x) {
+        RationalNumber ret(0);
         ret.A = this->A * x.A;
         ret.B = this->B * x.B;
         ret.Reduction();
         return ret;
     }
-    RealNumber operator / (RealNumber x) {
+    RationalNumber operator / (RationalNumber x) {
         return (*this) * x.Inverse();
     }
 };
 
 int main() {
+    RationalNumber A(1, 7), B(3, 13);
+    (A + B).Print(); cout << endl;
+    (A * B).Print(); cout << endl;
+    (A / B).Print(); cout << endl;
+    return 0;
 }

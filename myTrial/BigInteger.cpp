@@ -106,11 +106,11 @@ public:
         for (int i = 0; i < ret.siz; i++) {
             int x = A.num[i], y = 0;
             if (i < B.siz) y = B.num[i];
-            if (x - y >= 0) {
+            if (ret.num[i] + x - y >= 0) {
                 ret.num[i] += x - y;
             } else {
                 ret.num[i] += 10 + x - y;
-                if (i < ret.siz) ret.num[i+1] = 0;
+                if (i < ret.siz) ret.num[i+1]--;
             }
         }
 
@@ -131,7 +131,10 @@ public:
 };
 
 int main() {
-    BigInteger A("111111111111111111111111111111111111111111111111111111111"), B(1024);
-    (A * B).Print();
+    BigInteger A("1111111111111111"), B(33);
+    (A + B).Print(); cout << endl;
+    (A - B).Print(); cout << endl;
+    (A * B).Print(); cout << endl;
+    (A / 33).Print(); cout << endl;
     return 0;
 }
