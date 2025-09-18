@@ -67,7 +67,7 @@ private:
     double chargeEfficiency;
 
 public:
-    HybridCar (const string &mk, const string& mdl, int yr, double battCap, double fuelCap, double effi) 
+    HybridCar (const string &mk, const string &mdl, int yr, double battCap, double fuelCap, double effi) 
     : Automobile(mk, mdl, yr), ElectricCar(mk, mdl, yr - 2, battCap), GasolineCar(mk, mdl, yr + 2, fuelCap), chargeEfficiency(effi) {
         cout << "构造一个混合动力车对象" << endl;
     }
