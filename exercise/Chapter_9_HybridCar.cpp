@@ -22,7 +22,7 @@ public:
     }
 };
 
-class ElectricCar: public Automobile {
+class ElectricCar: public virtual Automobile {
 protected:
     double batteryCapacity;
 
