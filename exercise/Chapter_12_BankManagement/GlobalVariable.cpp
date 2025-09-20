@@ -1,2 +1,2 @@
 #include "GlobalVariable.h"
-extern std::string fileName = "customerAccount.dat";
+extern std::string fileName = "customer.dat";
