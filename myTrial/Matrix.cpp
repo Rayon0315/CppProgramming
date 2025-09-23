@@ -18,12 +18,13 @@ public:
     void update(int x);
     int query(int x);
 };
-
+//一个树状数组类，O(log n)实现动态区间查询并且空间为O(n)
 
 BinaryIndexedTree::BinaryIndexedTree () {
     maxNode = 0;
     node.clear();
 }
+//初始化函数
 
 BinaryIndexedTree::BinaryIndexedTree (int maxNodeInput) : maxNode(maxNodeInput) {
     node.clear();
@@ -31,6 +32,7 @@ BinaryIndexedTree::BinaryIndexedTree (int maxNodeInput) : maxNode(maxNodeInput) 
         node.push_back(0);
     }
 }
+//带最大结点的初始化函数
 
 void BinaryIndexedTree::update(int x) {
     while (x <= maxNode) {
@@ -38,6 +40,7 @@ void BinaryIndexedTree::update(int x) {
         x += lowbit(x);
     }
 }
+//更新0~x区间的值
 
 int BinaryIndexedTree::query(int x) {
     int sum = 0;
@@ -47,6 +50,7 @@ int BinaryIndexedTree::query(int x) {
     }
     return sum;
 }
+//计算0~x区间的值
 
 class Matrix {
 private:
@@ -67,6 +71,7 @@ Matrix::Matrix () {
     arr.push_back({1});
     n = 1;
 }
+//初始化函数
 
 Matrix::Matrix (int N) : n(N) {
     arr.clear();
@@ -76,11 +81,13 @@ Matrix::Matrix (int N) : n(N) {
         arr[i][i] = 1;
     }
 }
+//含N的初始化函数，是单位矩阵
 
 Matrix::Matrix (vector<vector<int>> brr) {
     n = brr[0].size();
     arr = brr;
 }
+//含矩阵的初始化函数
 
 void Matrix::Init() {
     cout << "Please Input n:"; cin >> n;
@@ -95,6 +102,7 @@ void Matrix::Init() {
         arr.push_back(cur);
     }
 }
+//带输入的初始化函数
 
 void Matrix::Print() {
     cout << "Here is the matrix:" << endl;
@@ -105,10 +113,13 @@ void Matrix::Print() {
         cout << endl;
     }
 }
+//输出函数
 
 int NegativeOnePow(int n) {
     return n % 2 == 1 ? -1 : 1;
 }
+//为了计算-1^逆序数次方
+
 int CountReverseOrder(int n, vector<int> x) {
     int sum = 0;
     BinaryIndexedTree T(n);
@@ -118,6 +129,7 @@ int CountReverseOrder(int n, vector<int> x) {
     }
     return sum;
 }
+//逆序数计算：树状数组倒序遍历
 
 int Matrix::det() {
     int res = 0;
@@ -134,6 +146,7 @@ int Matrix::det() {
     } while (next_permutation(tmp.begin(), tmp.end()));
     return res;
 }
+//计算行列式，通过next_permutation函数进行全排列
 
 int main() {
     Matrix A({{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
