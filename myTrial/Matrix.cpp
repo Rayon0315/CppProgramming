@@ -149,8 +149,8 @@ int Matrix::det() {
 //计算行列式，通过next_permutation函数进行全排列
 
 int main() {
-    Matrix A({{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
-    A.Print();
+    Matrix A;
+    A.Init();
     cout << A.det() << endl;
     return 0;
 }
