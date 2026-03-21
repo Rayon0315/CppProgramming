@@ -1,0 +1,8 @@
+创建文本文件
+===========================
+Name      Age       City      
+Alice     20        New York  
+Bob       18        London    
+Cathy     22        Paris     
+David     19        Boston    
+Jake      21        Toronto   
